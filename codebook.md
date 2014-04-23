@@ -142,3 +142,6 @@ The resulting tidy.mean data frame consists of these variables (columns):
 * fBodyBodyGyroMag-std() - standard deviation of frequency domain signals based magnitude of the gyroscope
 * fBodyBodyGyroJerkMag-mean() - mean of the frequency domain signals based jerk signal magnitude of the gyroscope
 * fBodyBodyGyroJerkMag-std() - standard deviation of the frequency domain signals based jerk signal magnitude of the gyroscope
+
+
+Note that althought the labels are identical to the labels in the tidy.set, in tidy.mean they represent the average of each variable for each activity and each subject, while in tidy.set they represent the individual values.
