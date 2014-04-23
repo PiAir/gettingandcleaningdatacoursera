@@ -93,14 +93,19 @@ sets.sub <- sets[,grep("mean\\(\\)$|std\\(\\)$",colnames(sets))]
 * std(): Standard deviation
 
 ## 3. Use descriptive activity names to name the activities in the data set
-## 4. Appropriately label the data set with descriptive activity names.
-These requirements looked (are) very simular. For the purpose of this analysis, the columns in the labels and subjects data frames have been named. The labels from the activity.labels data frame have been used to label the appropriate activities in the labels data frame.
+For the purpose of this analysis, the columns in the labels and subjects data frames have been named. The labels from the activity.labels data frame have been used to label the appropriate activities in the labels data frame.
 ```R
 match.idx <- match(labels$V1, activity.labels$class.label)
 labels$activity.name <- ifelse(is.na(match.idx),"",activity.labels$activity.name[match.idx])
 names(labels)[1] <- "activity.label"
 names(subjects)[1] <- "subject"
 ```
+
+## 4. Appropriately label the data set with descriptive activity names.
+This requirement was somewhat unclear since it looked to be a duplicate of #3. For this analysis, it has been interpreted as meaning that the columns of the tidy table all needed to have easy to understand labels instead of numbers. That requirement had already been taken into account during step #1:
+```R
+names(sets) <- features$V2
+``` 
 
 Finally the subjects, labels and sets.sub data frames have been combined to one tidy data set:
 ```R
