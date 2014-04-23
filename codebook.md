@@ -68,7 +68,13 @@ Only two resulting data frames remain:
 
 # Steps taken by the script
 The run_analysis.r script follows the requirements as close as possible.
-After reading in the activity.labels and featers data frames, it merges the training and test sets.
+
+## 0. Read the activity labels and feature data
+The activity.labels and featurers data frames are stored only once, no merging needed.
+```R
+activity.labels <- ReadActivityLabels()
+features <- ReadFeatures()
+```
 
 ## 1. Merge the training and the test sets to create one data set.
 The README.txt file explained that the obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data. 
@@ -120,7 +126,7 @@ tidy.means <- cast(mtidy.set, subject+activity.label+activity.name~variable, mea
 
 # Data in the resulting tidy.means data frame
 
-The resulting tidy.mean data frame consists of these variables (columns):
+The resulting tidy.mean data frame consists of these 21 variables (columns):
 * subject: identifier for the subject
 * activity.label: identifier for the activity
 * activity.name: name of the activity
@@ -143,5 +149,5 @@ The resulting tidy.mean data frame consists of these variables (columns):
 * fBodyBodyGyroJerkMag-mean() - mean of the frequency domain signals based jerk signal magnitude of the gyroscope
 * fBodyBodyGyroJerkMag-std() - standard deviation of the frequency domain signals based jerk signal magnitude of the gyroscope
 
-
 Note that althought the labels are identical to the labels in the tidy.set, in tidy.mean they represent the average of each variable for each activity and each subject, while in tidy.set they represent the individual values.
+
