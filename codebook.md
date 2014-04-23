@@ -42,8 +42,8 @@ The run_analysis.r script also references the requirements listed above using co
 
 The run_analysis.r script creates a number of temporary variables, that are removed again at the end of the script:
 * activity.labels: data frame with 2 colums:
-**  class.label: identifier for the activity
-**  activity.name: name of the activity
+  *  class.label: identifier for the activity
+  *  activity.name: name of the activity
 * features: data frame with 2 columns:
 ** V1: feature identifier
 ** V2: feature description
@@ -112,7 +112,7 @@ mtidy.set <- melt(tidy.set, id=c("subject", "activity.label", "activity.name"))
 tidy.means <- cast(mtidy.set, subject+activity.label+activity.name~variable, mean)
 ```
 
-# Data in the reulting tidy.means data frame
+# Data in the resulting tidy.means data frame
 
 The resulting tidy.mean data frame consists of these variables (columns):
 * subject: identifier for the subject
