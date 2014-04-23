@@ -22,13 +22,19 @@
 # 4) Appropriately labels the data set with descriptive activity names. 
 # 5) Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
+# install the reshape package if needed
+# install.packages("reshape")
+library(reshape)
 
 #
-# Change the kWorkingDirectory folder to the folder containing the R script
+# Change the Working Directory folder to the folder containing the R script if needed
+# Uncomment the two lines to run them
 #
-kWorkingDirectory = "F:/Dropbox/Pierre/Coursera/Getting and Cleaning Data/peer assignment"
-setwd(kWorkingDirectory)
+# kWorkingDirectory = "path/to/your/workingdirectory"
+# setwd(kWorkingDirectory)
+#
 # kDataFolder is the folder containing the unzipped data set
+# it is relative to the working directory
 kDataFolder = "UCI HAR Dataset"
 
 #
@@ -70,9 +76,7 @@ tidy.set <- cbind(subjects,labels,sets.sub)
 
 # 5) Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
-# install the reshape package if needed
-# install.packages("reshape")
-library(reshape)
+
 
 mtidy.set <- melt(tidy.set, id=c("subject", "activity.label", "activity.name"))
 tidy.means <- cast(mtidy.set, subject+activity.label+activity.name~variable, mean)
