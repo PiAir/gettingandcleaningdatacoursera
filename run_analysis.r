@@ -23,12 +23,13 @@
 # 5) Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
 # install the reshape package if needed
+# uncomment the line below to install the package
 # install.packages("reshape")
 library(reshape)
 
 #
 # Change the Working Directory folder to the folder containing the R script if needed
-# Uncomment the two lines to run them
+# uncomment the two lines to run them
 #
 # kWorkingDirectory = "path/to/your/workingdirectory"
 # setwd(kWorkingDirectory)
@@ -74,10 +75,7 @@ names(subjects)[1] <- "subject"
 # create the resulting set
 tidy.set <- cbind(subjects,labels,sets.sub)
 
-# 5) Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
-
-
-
+# 5) Create a second, independent tidy data set with the average of each variable for each activity and each subject.
 mtidy.set <- melt(tidy.set, id=c("subject", "activity.label", "activity.name"))
 tidy.means <- cast(mtidy.set, subject+activity.label+activity.name~variable, mean)
 
@@ -104,7 +102,6 @@ write.table(outputlines,file="tidy.means.md", quote = FALSE, col.names=FALSE, ro
 #
 # cleanup - remove temp data
 #
-
 rm(activity.labels)
 rm(features)
 rm(labels)
