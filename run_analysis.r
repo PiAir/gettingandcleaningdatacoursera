@@ -86,7 +86,11 @@ tidy.means <- cast(mtidy.set, subject+activity.label+activity.name~variable, mea
 write.table(tidy.set, "tidy.set.txt", sep=",")
 write.table(tidy.means, "tidy.means.txt", sep=",")
 
-
+#
+# export the column names of the
+# two data sets to Markdown files
+# in working directory
+#
 datanames <- names(tidy.set)
 outputlines <- paste("* ",datanames , sep="")
 #write.table will create tidy.set.md in the current working directory
@@ -96,8 +100,6 @@ datanames <- names(tidy.means)
 outputlines <- paste("* ",datanames , sep="")
 #write.table will create tidy.means.md in the current working directory
 write.table(outputlines,file="tidy.means.md", quote = FALSE, col.names=FALSE, row.names=FALSE)
-
-
 
 #
 # cleanup - remove temp data
