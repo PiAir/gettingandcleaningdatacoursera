@@ -28,6 +28,7 @@ This codebook will limit itself to the data cleaning process and the provided ti
 The project listed a number of requirements for the resulting tidy data set:
 
 You should create one R script called run_analysis.R that does the following. 
+
 1. Merges the training and the test sets to create one data set.
 2. Extracts only the measurements on the mean and standard deviation for each measurement. 
 3. Uses descriptive activity names to name the activities in the data set
@@ -45,21 +46,21 @@ The run_analysis.r script creates a number of temporary variables, that are remo
   *  class.label: identifier for the activity
   *  activity.name: name of the activity
 * features: data frame with 2 columns:
-** V1: feature identifier
-** V2: feature description
+  * V1: feature identifier
+  * V2: feature description
 * labels: data frame with the combined activity identifiers for the merged train and test set and 2 columns:
-** activity.label: identifier for the activity
-** activity.name: name of the activity
+  * activity.label: identifier for the activity
+  * activity.name: name of the activity
 * mtidy.set: data frame containing the melted result of tidy.set with 5 colomns:
-** subject: identifier for the subject
-** activity.label: identifier for the activity
-** activity.name: name of the activity
-** variable: column with the domain variables of tidy.set as values
-** value: column with the values for the domain variables listed in the variable column.
+  * subject: identifier for the subject
+  * activity.label: identifier for the activity
+  * activity.name: name of the activity
+  * variable: column with the domain variables of tidy.set as values
+  * value: column with the values for the domain variables listed in the variable column.
 * sets: data frame with 561 columns for the merged train and test set. See below for info about the columns.
 * sets.sub: data frame with a subselection of sets, based on requirement 2 of the project
 * subjects: data frame with the subject identifiers for the merged train and test set. 1 column:
-** subject: identifier for the subject
+  * subject: identifier for the subject
 
 Only two resulting data frames remain:
 * tidy.means: a data frame consisting of 180 observations in 21 variables. See below for info about the columns.
