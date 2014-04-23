@@ -2,6 +2,7 @@ Getting And Cleaning Data
 ==============================
 
 *Author:* Pierre Gorissen
+
 *Date:* 23-4-2014
 
 ## About:
@@ -28,7 +29,8 @@ Uncomment this line in run_analysis.r:
 to install it first if you have not done so yet.
 
 If needed, set the working directory to the folder containing run_analysis.r
-uncomment and modify these lines in run_analysis.r:
+
+Uncomment and modify these lines in run_analysis.r:
 ```R
 # kWorkingDirectory = "path/to/your/workingdirectory"
 # setwd(kWorkingDirectory)
@@ -36,7 +38,8 @@ uncomment and modify these lines in run_analysis.r:
 to set the working directory.
 
 The script also assumes that the unzipped data set is in a subfolder
-of the working directory called "UCI HAR Dataset"
+of the working directory called "UCI HAR Dataset".
+
 To change its location modify this line in run_analysis.r:
 ```R
 kDataFolder = "UCI HAR Dataset"
