@@ -119,21 +119,21 @@ The resulting tidy.mean data frame consists of these variables (columns):
 * subject: identifier for the subject
 * activity.label: identifier for the activity
 * activity.name: name of the activity
-* tBodyAccMag-mean() - mean of the time based body acceleration signal
-* tBodyAccMag-std() - standard deviation of the time based body acceleration signal
-* tGravityAccMag-mean() - mean of the time based magnitude of the body acceleration
-* tGravityAccMag-std() - standard deviation of the time based magnitude of the body acceleration
-* tBodyAccJerkMag-mean() - mean of the time based derived jerk signal based on the body linear acceleration and angular velocity
-* tBodyAccJerkMag-std() - standard deviation of the time based derived jerk signal based on the body linear acceleration and angular velocity
-* tBodyGyroMag-mean()
-* tBodyGyroMag-std()
-* tBodyGyroJerkMag-mean()
-* tBodyGyroJerkMag-std()
-* fBodyAccMag-mean()
-* fBodyAccMag-std()
-* fBodyBodyAccJerkMag-mean()
-* fBodyBodyAccJerkMag-std()
-* fBodyBodyGyroMag-mean()
-* fBodyBodyGyroMag-std()
-* fBodyBodyGyroJerkMag-mean()
-* fBodyBodyGyroJerkMag-std()
+* tBodyAccMag-mean() - mean of the time based body acceleration signal magnitude
+* tBodyAccMag-std() - standard deviation of the time based body acceleration signal magnitue
+* tGravityAccMag-mean() - mean of the time based gravity acceleration signal magnitude
+* tGravityAccMag-std() - standard deviation of the time based gravity acceleration signal magnitude
+* tBodyAccJerkMag-mean() - mean of the time based derived jerk signal based on the time based body acceleration signal magnitude
+* tBodyAccJerkMag-std() - standard deviation of the time based derived jerk signal based on the time based body acceleration signal magnitude
+* tBodyGyroMag-mean() - mean of the time based magnitude of the gyroscope
+* tBodyGyroMag-std() - standard deviation of thetime based magnitude of the gyroscope
+* tBodyGyroJerkMag-mean() - mean of the time based jerk signal magnitude of the gyroscope
+* tBodyGyroJerkMag-std() - standard deviation of the time based jerk signal magnitude of the gyroscope
+* fBodyAccMag-mean() - mean of the frequency domain body acceleration signal magnitude
+* fBodyAccMag-std() - standard deviation of the frequency domain body acceleration signal magnitude 
+* fBodyBodyAccJerkMag-mean() - mean of the frequency domain based derived jerk signal based on the body acceleration signal magnitude
+* fBodyBodyAccJerkMag-std() - standard deviation of the frequency domain based derived jerk signal based on the body acceleration signal magnitude
+* fBodyBodyGyroMag-mean() - mean of the frequency domain signals based magnitude of the gyroscope
+* fBodyBodyGyroMag-std() - standard deviation of frequency domain signals based magnitude of the gyroscope
+* fBodyBodyGyroJerkMag-mean() - mean of the frequency domain signals based jerk signal magnitude of the gyroscope
+* fBodyBodyGyroJerkMag-std() - standard deviation of the frequency domain signals based jerk signal magnitude of the gyroscope

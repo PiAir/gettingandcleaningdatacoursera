@@ -67,7 +67,7 @@ sets.sub <- sets[,grep("mean\\(\\)$|std\\(\\)$",colnames(sets))]
 
 # 3) Use descriptive activity names to name the activities in the data set
 # 4) Appropriately label the data set with descriptive activity names. 
-# match the descriptive labesl with the identifier for the activity
+# match the descriptive labels with the identifier for the activity
 match.idx <- match(labels$V1, activity.labels$class.label)
 labels$activity.name <- ifelse(is.na(match.idx),"",activity.labels$activity.name[match.idx])
 names(labels)[1] <- "activity.label"
@@ -93,12 +93,12 @@ write.table(tidy.means, "tidy.means.txt", sep=",")
 #
 datanames <- names(tidy.set)
 outputlines <- paste("* ",datanames , sep="")
-#write.table will create tidy.set.md in the current working directory
+# write.table will create tidy.set.md in the current working directory
 write.table(outputlines,file="tidy.set.md", quote = FALSE, col.names=FALSE, row.names=FALSE)
 
 datanames <- names(tidy.means)
 outputlines <- paste("* ",datanames , sep="")
-#write.table will create tidy.means.md in the current working directory
+# write.table will create tidy.means.md in the current working directory
 write.table(outputlines,file="tidy.means.md", quote = FALSE, col.names=FALSE, row.names=FALSE)
 
 #

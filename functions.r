@@ -27,8 +27,8 @@ ReadActivityLabels <- function() {
   #
   # Returns:
   #  data frame with
-  #    class_label: identifier for activity
-  #    activity_name: name of the activity
+  #    class.label: identifier for activity
+  #    activity.name: name of the activity
   # 
   t <- read.table(paste(kDataFolder, "/activity_labels.txt", sep=""), sep=" ")
   # Remove underscore in activity name
@@ -42,7 +42,8 @@ ReadActivityLabels <- function() {
 
 
 ReadFeatures <- function() {
-  # Read features  
+  # Read features identifiers and
+  # corresponding description of the feature
   #
   # Requires:
   #  kDataFolder: subfolder of working directory containing features.txt
