@@ -5,7 +5,7 @@ Codebook
 
 *Date:* 23-4-2014
 
-# About the data
+## About the data
 The raw data for the project was downloaded here:
 
 https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
@@ -24,7 +24,7 @@ For each record in the draw dataset it is provided:
 The original dataset contains a number of files. The README.txt explains the experiments in more detail and lists all the files in the raw data set.
 This codebook will limit itself to the data cleaning process and the provided tidy data set.
 
-# Requirements for the tidy data set
+## Requirements for the tidy data set
 The project listed a number of requirements for the resulting tidy data set:
 
 You should create one R script called run_analysis.R that does the following. 
@@ -39,7 +39,7 @@ For clearity of the code, the script has been split in two parts: functions.r an
 The functions.r file contains all the functions used to read the txt files with the raw data while the run_analysis.r file contains the main logic of the script.
 The run_analysis.r script also references the requirements listed above using comments.
 
-# Variables
+## Variables
 
 The run_analysis.r script creates a number of temporary variables, that are removed again at the end of the script:
 * activity.labels: data frame with 2 colums:
@@ -66,17 +66,17 @@ Only two resulting data frames remain:
 * tidy.means: a data frame consisting of 180 observations in 21 variables. See below for info about the columns.
 * tidy.set: a data fram consisting of 10299 observations in 21 variables. See below for info about the columns.
 
-# Steps taken by the script
+## Steps taken by the script
 The run_analysis.r script follows the requirements as close as possible.
 
-## 0. Read the activity labels and feature data
+### 0. Read the activity labels and feature data
 The activity.labels and featurers data frames are stored only once, no merging needed.
 ```R
 activity.labels <- ReadActivityLabels()
 features <- ReadFeatures()
 ```
 
-## 1. Merge the training and the test sets to create one data set.
+### 1. Merge the training and the test sets to create one data set.
 The README.txt file explained that the obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data. 
 ```R
 subjects <- rbind(ReadSubjects("train"), ReadSubjects("test") )
@@ -90,7 +90,7 @@ names(sets) <- features$V2
 ```
 Because the next step calls for the creation of a sub set of the colums in the sets data frame, the three data frames are not yet combined.
 
-## 2. Extract only the measurements on the mean and standard deviation for each measurement. 
+### 2. Extract only the measurements on the mean and standard deviation for each measurement. 
 The features_info.txt file from the raw data set describes the measurements in more detail. It describes the signals and the resulting variables. For each resulting variable, the overall mean and stand deviation have been extracted. For the purpose of this analysis the measurement for the individual X,Y,Z directions have been discarted.
 ```R
 sets.sub <- sets[,grep("mean\\(\\)$|std\\(\\)$",colnames(sets))]
@@ -98,7 +98,7 @@ sets.sub <- sets[,grep("mean\\(\\)$|std\\(\\)$",colnames(sets))]
 * mean(): Mean value
 * std(): Standard deviation
 
-## 3. Use descriptive activity names to name the activities in the data set
+### 3. Use descriptive activity names to name the activities in the data set
 For the purpose of this analysis, the columns in the labels and subjects data frames have been named. The labels from the activity.labels data frame have been used to label the appropriate activities in the labels data frame.
 ```R
 match.idx <- match(labels$V1, activity.labels$class.label)
@@ -107,7 +107,7 @@ names(labels)[1] <- "activity.label"
 names(subjects)[1] <- "subject"
 ```
 
-## 4. Appropriately label the data set with descriptive activity names.
+### 4. Appropriately label the data set with descriptive activity names.
 This requirement was somewhat unclear since it looked to be a duplicate of #3. For this analysis, it has been interpreted as meaning that the columns of the tidy table all needed to have easy to understand labels instead of numbers. That requirement had already been taken into account during step #1:
 ```R
 names(sets) <- features$V2
@@ -117,14 +117,14 @@ Finally the subjects, labels and sets.sub data frames have been combined to one 
 ```R
 tidy.set <- cbind(subjects,labels,sets.sub)
 ```
-## 5. Create a second, independent tidy data set with the average of each variable for each activity and each subject. 
+### 5. Create a second, independent tidy data set with the average of each variable for each activity and each subject. 
 In this final step, the tidy.set data frame is melted on subject, activity.label and activity.name allowing for the calculation of means (average) of each variable for each activity and each subject.
 ```R
 mtidy.set <- melt(tidy.set, id=c("subject", "activity.label", "activity.name"))
 tidy.means <- cast(mtidy.set, subject+activity.label+activity.name~variable, mean)
 ```
 
-# Data in the resulting tidy.means data frame
+## Data in the resulting tidy.means data frame
 
 The resulting tidy.mean data frame consists of these 21 variables (columns):
 * subject: identifier for the subject
